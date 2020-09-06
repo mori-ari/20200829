@@ -17,8 +17,7 @@
     <!-- 入力フォーム -->
     <form action="" method="post" id="form">
         <div><input type="datetime-local" id="date" min="2020-09-01T00:00" max="2021-03-31T23:59" ></div>
-        <div><input type="text" id="title" placeholder=" 内容を記入" ></div>
-        <!-- <div>  
+        <div>  
             <select name="cate" id="cate">
                 <option selected="selected" value="">カテゴリを選択</option>
                 <option label="イベント" id="event" value="イベント">イベント</option>
@@ -26,7 +25,9 @@
                 <option label="授業" id="class" value="授業">授業</option>
                 <option label="課題〆切" id="deadline" value="課題〆切">課題〆切</option>
             </select>
-        </div> -->
+        </div>
+        <div><input type="text" id="title" placeholder=" 内容を記入" ></div>
+
         <button type="submit" id="submit">登録</button>
 
     </form>
@@ -38,8 +39,8 @@
         <table id="list" class="tablesorter">
             <thead>
                 <tr>
-                    <th id="left">日程</th>
-                    <th id="right">内容</th>
+                    <th>日程</th>
+                    <th>内容</th>
                     <th>削除</th>
                 </tr>
             </thead>
@@ -64,6 +65,7 @@
 
 
 
+
 //1.submit クリックイベント
 $("#submit").on("click",function(){
     const key = $("#date").val();
@@ -79,6 +81,7 @@ $("#submit").on("click",function(){
 
 
 //2.ページ読み込み：保存データ取得表示
+
 for(let i=0; i<localStorage.length; i++){
     const key   = localStorage.key(i);
     const value = localStorage.getItem(key);
@@ -90,10 +93,14 @@ for(let i=0; i<localStorage.length; i++){
     const week = document.getElementById('week_'+i+'');
     const day = document.getElementById('day_'+i+'');
     const td_txt = td.textContent;
-    const y = key.slice( 0, 4 ) ;
+
+    // keyを区切る
+    const y = key.substr( 0, 4 ) ;
     const m = key.substr( 5, 2 ) ;
     const d = key.substr( 8, 2 ) ;
-    const t = key.substr( 11, 5 ) ;
+    const h = key.substr( 11, 2 ) ;
+    const min = key.substr( 14, 2 ) ;
+
 
    
     // 現在日時を数値に変換
@@ -109,7 +116,7 @@ for(let i=0; i<localStorage.length; i++){
     const w = '('+weeks[targetDate.getDay()] + ')';
 
     // 日付の記述変える
-    const date = y +"/"+m+"/"+d+w+"  "+t
+    const date = y+"/"+m+"/"+d+w+"  "+h+":"+min
     $(td).prepend(date);
 
     // 引き算して残日数を計算
@@ -128,7 +135,8 @@ for(let i=0; i<localStorage.length; i++){
         $(tr).remove();
         localStorage.removeItem(key);
     };
-    // 削除ボタン
+
+    // 削除ボタンクリック
     $(n).on("click",function(){
         const check = window.confirm('本当に削除しますか？');
         if(check) {
@@ -137,6 +145,44 @@ for(let i=0; i<localStorage.length; i++){
         };
     });
 };
+
+
+  // 日付で並べ替えたい
+  $(function() {
+  $("#list").tablesorter({
+    sortList: [
+      [0,0],
+    //   [1,0]
+    ]
+  });
+});
+    // $.tablesorter.addParser({
+    //     id: 'td', 
+    //     is: function(s) { 
+    //         return false;
+    //     },
+    //     format: function(s) {
+    //             return s.toLowerCase().replace(/[^0-9]/g,'');
+    //         },
+    //     type: 'string'
+    // });
+
+    // $('#list').tablesorter({
+    //         headers: {
+    //            1: { sorter: false },
+    //            2: { sorter: false }
+    //         }
+    // });
+    // const sort = ["2020-09-22T20:23","2020-09-15T20:23","2020-09-20T18:25"];
+    // sort.sort(); 
+    // console.log(sort);
+    // const sort = [date_list];
+    // function compareFunc(a, b) {
+    //   return a - b;
+    // }
+    // sort.sort(compareFunc); 
+
+// sort[key]= localStorage.getItem(key);
 
 </script>
 </body>
