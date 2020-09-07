@@ -16,24 +16,47 @@ body{
     text-align: center;
 }
 
-h1{
-    font-size:28px;
-    margin:30px;
-    font-weight:bold;
+
+#main{
+    background: url(../img/dev_vi_pc-1.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    text-align: center;
+    font-weight: bold;
+    margin: auto;
+    height:130px
 }
 
+
+h1 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    color: #fff;
+    font-size:30px;
+    padding-top: 50px;
+
+}
+
+
+
+
 #form{
-    /* margin:40px; */
     display: inline-block;
     text-align: left;
 }
 
 
 #date{
-    /* width: 300px; */
     height: 30px;
     display: block;
     margin: 0;
+    margin-top: 20px;
     padding:5px;
     font-size:16px    
 }
@@ -64,6 +87,7 @@ h1{
     display: block;
     border: none;
     text-align: center;
+    font-weight: bold;
 }
 
 #submit:hover{
@@ -72,6 +96,7 @@ h1{
 
 #result{
     width: 90%;
+    max-width :900px;
     margin:0 auto;
     text-align: center;
 }
@@ -80,16 +105,15 @@ p{
    margin:20px 0;
    text-align:left;
    font-size: 14px;
-
 }
-
 
 
 table{
     width: 100%;
     text-align: center;
-    border: solid 1px #00A7EA;
-    margin:0 auto;
+    border: solid 1px #000;
+    /* margin:0 auto; */
+    margin-bottom:50px
 }
 
 tr{
@@ -100,9 +124,11 @@ tr{
 
 th{
     background: #00A7EA;
+    border: solid 1px #fff;
     color:#fff;
     vertical-align: middle;
     padding:5px;
+    font-weight: bold;
 }
 
 td{
@@ -114,7 +140,7 @@ td{
 }
 
 #red{
-    color:red;
+    color:#EA2C00;
     font-weight: bold;
     font-size: 16px;
     margin-top:4px;
@@ -122,8 +148,8 @@ td{
 }
 
 #blue{
-    color:blue;
-    font-size: 12px;
+    color:#4488C5;
+    font-size: 14px;
     margin-top:4px;
     display: inline-block;
 }
@@ -132,17 +158,65 @@ td{
     background: #00A7EA;
     padding: 10px;
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
     color: white;
     display: block;
     border: none;
+    font-weight: bold;
 }
 
 .delete:hover{
     opacity: 0.5 ;
 }
 
-#clear{
-    width: 100px;
+.event{
+    background: #DC9925;
+    font-size: 14px;
+    padding:6px;
+    color:#fff;
+    display: inline-block;
+    margin-bottom:4px;
+    width:80px;
+    text-align: center;
+    border-radius:30px;
 }
+
+.mokmok{
+    background:#4CAF93;
+    font-size: 14px;
+    padding:6px;
+    color:#fff;
+    display: inline-block;
+    margin-bottom:4px;
+    width:80px;
+    text-align: center;
+    border-radius:30px;
+}
+
+.lecture{
+    background: #4488C5;
+    font-size: 14px;
+    padding:6px;
+    color:#fff;
+    display: inline-block;
+    margin-bottom:4px;
+    width:80px;
+    text-align: center;
+    border-radius:30px;
+}
+
+
+.dead{
+    background: #EA733B;
+    font-size: 14px;
+    padding:6px;
+    color:#fff;
+    display: inline-block;
+    margin-bottom:4px;
+    width:80px;
+    text-align: center;
+    border-radius:30px;
+}
+
+
 
